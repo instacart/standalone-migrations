@@ -36,6 +36,7 @@ module StandaloneMigrations
       defaults = {
         :config       => "db/config.yml",
         :migrate_dir  => "db/migrate",
+        :db_dir       => "db",
         :seeds        => "db/seeds.rb",
         :schema       => "db/schema.rb"
       }
@@ -52,6 +53,10 @@ module StandaloneMigrations
 
     def migrate_dir
       @options[:migrate_dir]
+    end
+
+    def db_dir
+      @options[:db_dir]
     end
 
     def seeds
@@ -86,6 +91,7 @@ module StandaloneMigrations
       {
         :config       => config["config"] ? config["config"]["database"] : defaults[:config],
         :migrate_dir  => (config["db"] || {})["migrate"] || defaults[:migrate_dir],
+        :db_dir       => (config["db"] || {})["db"] || defaults[:db_dir],
         :seeds        => (config["db"] || {})["seeds"] || defaults[:seeds],
         :schema       => (config["db"] || {})["schema"] || defaults[:schema]
       }

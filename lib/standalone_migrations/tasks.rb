@@ -6,6 +6,7 @@ module StandaloneMigrations
         configurator = Configurator.new
         paths = Rails.application.config.paths
         paths.add "config/database", :with => configurator.config
+        paths.add "db", :with => configurator.db_dir
         paths.add "db/migrate", :with => configurator.migrate_dir
         paths.add "db/seeds.rb", :with => configurator.seeds
       end
