@@ -13,6 +13,7 @@ railtie_app_path = "#{lib_path}/standalone_migrations/minimal_railtie_config"
 APP_PATH = File.expand_path(railtie_app_path,  __FILE__)
 
 require "standalone_migrations/minimal_railtie_config"
+require "active_record/railtie"
 require "standalone_migrations/tasks"
 
 if !ENV["RAILS_ENV"]
