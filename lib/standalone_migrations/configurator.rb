@@ -41,7 +41,6 @@ module StandaloneMigrations
         :schema       => "db/schema.rb"
       }
       @options = load_from_file(defaults.dup) || defaults.merge(options)
-      ENV['SCHEMA'] = ENV['SCHEMA'] || File.expand_path(schema)
 
       Rails.application.config.root = Pathname.pwd
       Rails.application.config.paths["config/database"] = config
